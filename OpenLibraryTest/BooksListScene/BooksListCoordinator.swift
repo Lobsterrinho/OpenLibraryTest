@@ -37,7 +37,7 @@ extension BooksListCoordinator: BooksListCoordinatorProtocol {
     
     func openBookDetailsScene(book: Book) {
         let bookDetailsCoordinator = BookDetailsCoordinator(
-            rootNavigationController: rootNavigationController,
+            navigationController: rootNavigationController,
             rootCoordinator: self)
         childCoordinators.append(bookDetailsCoordinator)
         bookDetailsCoordinator.start(book: book)

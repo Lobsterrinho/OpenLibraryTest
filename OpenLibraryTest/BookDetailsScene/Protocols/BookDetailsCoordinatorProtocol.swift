@@ -9,4 +9,5 @@ import Foundation
 
 protocol BookDetailsCoordinatorProtocol: AnyObject {
     func finish()
+    func finish(_ shouldMovetoParentVC: Bool)
 }

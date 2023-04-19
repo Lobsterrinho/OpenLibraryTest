@@ -47,7 +47,8 @@ final class BooksListVM: BooksListVMProtocol {
                       title: doc.title,
                       firstPublishDate: doc.firstPublishDate,
                      coverID: doc.coverID ?? -1,
-                     descriprtion: doc.firstSentence?.first ?? "Here is no description")
+                     descriprtion: doc.firstSentence?.first ?? "Here is no description",
+                     averageRating: doc.averageRating)
             })
             self.setupBooks()
             self.VMDelegate?.cellsDidLoaded(true)

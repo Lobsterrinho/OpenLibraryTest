@@ -28,6 +28,10 @@ final class BookDetailsVM: BookDetailsVMProtocol {
         self.book = book
     }
     
+    func finish(shouldMovetoParentVC: Bool) {
+        coordinator?.finish(shouldMovetoParentVC)
+    }
+    
     //MARK: - methods for loading image and description
     
     func loadBookCover(by id: Int,
@@ -41,12 +45,12 @@ final class BookDetailsVM: BookDetailsVMProtocol {
     }
     
     func loadBookDescription(bookPath: String,
-                                     handler: @escaping (String) -> Void) {
+                             handler: @escaping (String) -> Void) {
         networkService.loadBookDetails(bookPath: bookPath) { bookDetailsModel in
-                let description = bookDetailsModel?.description?.value ??
-                    "Here is no description from publisher"
-                DispatchQueue.main.async {
-                    handler(description)
+            let description = bookDetailsModel?.description?.value ??
+            "Here is no description from publisher"
+            DispatchQueue.main.async {
+                handler(description)
             }
         }
     }

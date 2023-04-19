@@ -17,6 +17,7 @@ struct Doc: Decodable {
     let firstPublishDate: Int
     let coverID: Int?
     let firstSentence: [String]?
+    let averageRating: Double?
     
     enum CodingKeys: String, CodingKey {
         case key
@@ -24,6 +25,7 @@ struct Doc: Decodable {
         case firstPublishDate = "first_publish_year"
         case coverID = "cover_i"
         case firstSentence = "first_sentence"
+        case averageRating = "ratings_average"
     }
 }
 

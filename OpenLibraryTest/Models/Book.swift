@@ -13,4 +13,5 @@ struct Book {
     let firstPublishDate: Int
     let coverID: Int
     let descriprtion: String
+    let averageRating: Double?
 }

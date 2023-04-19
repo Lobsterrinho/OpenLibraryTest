@@ -9,14 +9,14 @@ import UIKit
 
 final class BookDetailsCoordinator: Coordinator {
     
-    private var rootNavigationController: UINavigationController
+    private var navigationController: UINavigationController
     private var rootCoordinator: BookDetailsRootCoordinatorProtocol
     
     var childCoordinators: [Coordinator] = []
     
-    init(rootNavigationController: UINavigationController,
+    init(navigationController: UINavigationController,
          rootCoordinator: BookDetailsRootCoordinatorProtocol) {
-        self.rootNavigationController = rootNavigationController
+        self.navigationController = navigationController
         self.rootCoordinator = rootCoordinator
     }
     
@@ -27,17 +27,24 @@ final class BookDetailsCoordinator: Coordinator {
     func start(book: Book) {
         let rootViewController = BookDetailsAssembler.makeBookDetailsVC(coordinator: self,
                                                                         book: book)
-        rootNavigationController.pushViewController(rootViewController, animated: true)
+        navigationController.pushViewController(rootViewController, animated: true)
     }
     
     func finish() {
-        rootNavigationController.popViewController(animated: true)
         rootCoordinator.bookDetailsSceneFinished(self)
     }
     
 }
 
-extension BookDetailsCoordinator: BookDetailsCoordinatorProtocol { }
+extension BookDetailsCoordinator: BookDetailsCoordinatorProtocol {
+    
+    func finish(_ shouldMovetoParentVC: Bool) {
+        if shouldMovetoParentVC {
+            navigationController.popViewController(animated: true)
+        }
+        finish()
+    }
+}
 
 
 

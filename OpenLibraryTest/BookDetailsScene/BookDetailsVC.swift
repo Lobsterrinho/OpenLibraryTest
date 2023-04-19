@@ -12,20 +12,18 @@ final class BookDetailsVC: UIViewController {
     @IBOutlet private weak var bookCover: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var indicator: UIActivityIndicatorView!
     @IBOutlet private weak var descriptionTextView: UITextView! {
         didSet {
             descriptionTextView.layer.cornerRadius = 7.0
         }
     }
-    @IBOutlet private weak var titleView: UIView! {
+    @IBOutlet private var views: [UIView]! {
         didSet {
-            titleView.layer.cornerRadius = 7.0
-        }
-    }
-    @IBOutlet private weak var dateView: UIView! {
-        didSet {
-            dateView.layer.cornerRadius = 7.0
+            views.forEach { view in
+                view.layer.cornerRadius = 7.0
+            }
         }
     }
     
@@ -45,7 +43,13 @@ final class BookDetailsVC: UIViewController {
         startLoader()
         setupLabels()
         setupBookCover()
-//        setupBookDescription()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if isMovingFromParent {
+            viewModel.finish(shouldMovetoParentVC: true)
+        }
     }
     
     private func startLoader() {
@@ -66,9 +70,15 @@ final class BookDetailsVC: UIViewController {
     }
     
     private func setupLabels() {
+        
         titleLabel.text = viewModel.book.title
         dateLabel.text = String(viewModel.book.firstPublishDate)
         descriptionTextView.text = viewModel.book.descriprtion
+        if let rating = viewModel.book.averageRating {
+            ratingLabel.text = String(rating)
+        } else {
+            ratingLabel.text = "Not rated"
+        }
     }
     
     private func setupBookDescription() {

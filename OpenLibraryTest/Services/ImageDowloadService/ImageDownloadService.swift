@@ -21,10 +21,8 @@ final class ImageDownloadService {
         self.cache = cache
     }
     
-    func downloadImage(
-        from urlStr: String,
-        completion: @escaping DownloadHandler
-    ) {
+    func downloadImage(from urlStr: String,
+        completion: @escaping DownloadHandler) {
         if let cachedImage = cache.get(for: urlStr) {
             completion(cachedImage)
             return
@@ -47,6 +45,10 @@ final class ImageDownloadService {
                let image = UIImage(data: data) {
                 self?.cache.set(value: image, for: urlStr)
                 completion(image)
+            } else {
+                let noImage = UIImage(named: "noImage")!
+                self?.cache.set(value: noImage, for: urlStr)
+                completion(noImage)
             }
         }
         currentTask?.resume()

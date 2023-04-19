@@ -25,6 +25,7 @@ final class BookCellVM: BookCellVMProtocol {
     func loadImage(by id: Int, handler: @escaping (UIImage?) -> Void) {
         let url = urlBuilder.buildURL(coverID: id, coverSize: "M")
         imageDownloadService.downloadImage(from: url) { image in
+            
             DispatchQueue.main.async {
                 handler(image)
             }

@@ -12,12 +12,14 @@
             <connections>
                 <outlet property="bookCover" destination="0az-ut-tmw" id="Vv4-28-CLQ"/>
                 <outlet property="dateLabel" destination="YxV-TX-Lzc" id="FAo-OE-kiH"/>
-                <outlet property="dateView" destination="mIB-Ql-Lw7" id="Zl7-RX-g9u"/>
                 <outlet property="descriptionTextView" destination="HgD-A0-kK4" id="u3A-3N-zuZ"/>
                 <outlet property="indicator" destination="rhC-Mk-DLi" id="9Fu-ar-A7c"/>
+                <outlet property="ratingLabel" destination="Air-bh-b4D" id="Yao-Ph-MB7"/>
                 <outlet property="titleLabel" destination="BGQ-OO-6aK" id="RF5-Fd-a1A"/>
-                <outlet property="titleView" destination="UTD-gL-AEJ" id="bV3-oJ-oFT"/>
                 <outlet property="view" destination="iN0-l3-epB" id="S4x-dg-eJT"/>
+                <outletCollection property="views" destination="qUo-5k-ghP" collectionClass="NSMutableArray" id="4gQ-j7-Rct"/>
+                <outletCollection property="views" destination="UTD-gL-AEJ" collectionClass="NSMutableArray" id="O3H-h1-Sjb"/>
+                <outletCollection property="views" destination="mIB-Ql-Lw7" collectionClass="NSMutableArray" id="G3z-g6-B1u"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -51,19 +53,36 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qUo-5k-ghP">
+                    <rect key="frame" x="312.66666666666669" y="414" width="60.333333333333314" height="31"/>
+                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Air-bh-b4D">
+                    <rect key="frame" x="317.66666666666669" y="419" width="50.333333333333314" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="rhC-Mk-DLi">
                     <rect key="frame" x="178" y="181" width="37" height="37"/>
                 </activityIndicatorView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Loading descriprion..." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HgD-A0-kK4">
-                    <rect key="frame" x="20" y="465" width="353" height="162"/>
+                    <rect key="frame" x="20" y="465" width="353" height="130"/>
                     <color key="backgroundColor" systemColor="systemGray6Color"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="162" id="WZn-MQ-HTp"/>
+                        <constraint firstAttribute="height" constant="130" id="WZn-MQ-HTp"/>
                     </constraints>
                     <color key="textColor" systemColor="labelColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ISw-cK-nVw">
+                    <rect key="frame" x="276.66666666666669" y="413.66666666666669" width="31" height="30.666666666666686"/>
+                    <color key="tintColor" systemColor="systemYellowColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="31" id="E6k-hv-fQs"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -71,20 +90,30 @@
                 <constraint firstItem="YxV-TX-Lzc" firstAttribute="top" secondItem="BGQ-OO-6aK" secondAttribute="bottom" constant="30" id="4NO-d5-vEz"/>
                 <constraint firstItem="0az-ut-tmw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="70" id="5Z4-lJ-S7H"/>
                 <constraint firstItem="rhC-Mk-DLi" firstAttribute="centerY" secondItem="0az-ut-tmw" secondAttribute="centerY" id="5ZZ-Hf-S1I"/>
+                <constraint firstItem="qUo-5k-ghP" firstAttribute="bottom" secondItem="ISw-cK-nVw" secondAttribute="bottom" id="6dw-7t-vcI"/>
+                <constraint firstItem="qUo-5k-ghP" firstAttribute="leading" secondItem="ISw-cK-nVw" secondAttribute="trailing" constant="5" id="8rg-ew-WRG"/>
                 <constraint firstItem="BGQ-OO-6aK" firstAttribute="top" secondItem="0az-ut-tmw" secondAttribute="bottom" constant="25" id="BCK-8o-M4w"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="BGQ-OO-6aK" secondAttribute="trailing" constant="25" id="Drp-V1-SNd"/>
                 <constraint firstItem="YxV-TX-Lzc" firstAttribute="leading" secondItem="mIB-Ql-Lw7" secondAttribute="leading" constant="5" id="KCc-C4-Irf"/>
                 <constraint firstItem="BGQ-OO-6aK" firstAttribute="trailing" secondItem="UTD-gL-AEJ" secondAttribute="trailing" constant="-5" id="Kmv-IV-sFH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="HgD-A0-kK4" secondAttribute="trailing" constant="20" id="M1N-eX-Xcg"/>
                 <constraint firstItem="BGQ-OO-6aK" firstAttribute="leading" secondItem="UTD-gL-AEJ" secondAttribute="leading" constant="5" id="PGJ-hh-pqv"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Air-bh-b4D" secondAttribute="trailing" constant="25" id="RYY-vU-cEk"/>
                 <constraint firstItem="BGQ-OO-6aK" firstAttribute="bottom" secondItem="UTD-gL-AEJ" secondAttribute="bottom" constant="-5" id="Umn-Kf-eil"/>
+                <constraint firstItem="Air-bh-b4D" firstAttribute="trailing" secondItem="qUo-5k-ghP" secondAttribute="trailing" constant="-5" id="Uyk-XX-3xo"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0az-ut-tmw" secondAttribute="trailing" constant="70" id="Wen-Tb-lY7"/>
+                <constraint firstItem="Air-bh-b4D" firstAttribute="leading" secondItem="qUo-5k-ghP" secondAttribute="leading" constant="5" id="XhX-zY-Ram"/>
+                <constraint firstItem="qUo-5k-ghP" firstAttribute="top" secondItem="ISw-cK-nVw" secondAttribute="top" id="ZTh-Fb-O5q"/>
+                <constraint firstItem="HgD-A0-kK4" firstAttribute="top" secondItem="Air-bh-b4D" secondAttribute="bottom" constant="25" id="a1Z-12-ZSw"/>
                 <constraint firstItem="BGQ-OO-6aK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="bAT-hG-gdx"/>
                 <constraint firstItem="YxV-TX-Lzc" firstAttribute="trailing" secondItem="mIB-Ql-Lw7" secondAttribute="trailing" constant="-5" id="bIA-iE-Kdg"/>
+                <constraint firstItem="Air-bh-b4D" firstAttribute="top" secondItem="qUo-5k-ghP" secondAttribute="top" constant="5" id="cfq-fv-7My"/>
                 <constraint firstItem="YxV-TX-Lzc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="dZJ-Pw-8Me"/>
+                <constraint firstItem="Air-bh-b4D" firstAttribute="bottom" secondItem="qUo-5k-ghP" secondAttribute="bottom" constant="-5" id="fU1-nD-zY8"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="YxV-TX-Lzc" secondAttribute="trailing" constant="320" id="gv4-qI-AGM"/>
                 <constraint firstItem="0az-ut-tmw" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="gvM-mM-O8j"/>
                 <constraint firstItem="HgD-A0-kK4" firstAttribute="top" secondItem="YxV-TX-Lzc" secondAttribute="bottom" constant="25" id="jOV-t3-Igu"/>
+                <constraint firstItem="Air-bh-b4D" firstAttribute="top" secondItem="BGQ-OO-6aK" secondAttribute="bottom" constant="30" id="jVn-PG-hPc"/>
                 <constraint firstItem="YxV-TX-Lzc" firstAttribute="top" secondItem="mIB-Ql-Lw7" secondAttribute="top" constant="5" id="pQg-Q2-jZE"/>
                 <constraint firstItem="rhC-Mk-DLi" firstAttribute="centerX" secondItem="0az-ut-tmw" secondAttribute="centerX" id="qOb-4e-W5m"/>
                 <constraint firstItem="BGQ-OO-6aK" firstAttribute="top" secondItem="UTD-gL-AEJ" secondAttribute="top" constant="5" id="qfD-MN-s38"/>
@@ -95,6 +124,7 @@
         </view>
     </objects>
     <resources>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -103,6 +133,9 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

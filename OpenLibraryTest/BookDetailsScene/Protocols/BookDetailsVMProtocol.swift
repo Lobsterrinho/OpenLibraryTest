@@ -15,4 +15,5 @@ protocol BookDetailsVMProtocol {
                        handler: @escaping (UIImage?) -> Void)
     func loadBookDescription(bookPath: String,
                                      handler: @escaping (String) -> Void)
+    func finish(shouldMovetoParentVC: Bool)
 }
