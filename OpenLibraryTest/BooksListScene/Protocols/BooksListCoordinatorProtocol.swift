@@ -10,4 +10,5 @@ import UIKit
 
 protocol BooksListCoordinatorProtocol: AnyObject {
     func finish()
+    func openBookDetailsScene(book: Book)
 }

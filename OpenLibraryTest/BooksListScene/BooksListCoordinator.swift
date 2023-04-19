@@ -35,5 +35,17 @@ final class BooksListCoordinator: Coordinator {
 
 extension BooksListCoordinator: BooksListCoordinatorProtocol {
     
-    
+    func openBookDetailsScene(book: Book) {
+        let bookDetailsCoordinator = BookDetailsCoordinator(
+            rootNavigationController: rootNavigationController,
+            rootCoordinator: self)
+        childCoordinators.append(bookDetailsCoordinator)
+        bookDetailsCoordinator.start(book: book)
+    }
+}
+
+extension BooksListCoordinator: BookDetailsRootCoordinatorProtocol {
+    func bookDetailsSceneFinished(_ coordinator: Coordinator) {
+        childCoordinators.removeAll(where: { $0 === coordinator })
+    }
 }

@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BooksListVC" customModule="OpenLibraryTest" customModuleProvider="target">
             <connections>
+                <outlet property="indicator" destination="Gjb-DX-u8W" id="X0c-Ms-b84"/>
+                <outlet property="tableView" destination="8H9-Ra-9x4" id="dN6-eC-yJ3"/>
                 <outlet property="view" destination="iN0-l3-epB" id="OBv-ga-nWg"/>
             </connections>
         </placeholder>
@@ -17,14 +19,31 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8H9-Ra-9x4">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Gjb-DX-u8W">
+                    <rect key="frame" x="178" y="407.66666666666669" width="37" height="37"/>
+                </activityIndicatorView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="-65" y="20"/>
+            <color key="backgroundColor" systemColor="systemGray6Color"/>
+            <constraints>
+                <constraint firstItem="Gjb-DX-u8W" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="JVJ-W9-LFB"/>
+                <constraint firstItem="8H9-Ra-9x4" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="MNo-ig-ZHz"/>
+                <constraint firstItem="Gjb-DX-u8W" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="iFj-kT-GZd"/>
+                <constraint firstItem="8H9-Ra-9x4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="jU1-MF-9lA"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="8H9-Ra-9x4" secondAttribute="bottom" id="jdb-0u-UZO"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="8H9-Ra-9x4" secondAttribute="trailing" id="uT4-7p-m34"/>
+            </constraints>
+            <point key="canvasLocation" x="-66.412213740458014" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

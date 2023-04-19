@@ -32,7 +32,7 @@ final class AppCoordinator: Coordinator {
         let booksWindow = UIWindow(windowScene: windowScene)
         let navigationController = UINavigationController()
         booksWindow.rootViewController = navigationController
-        
+        navigationController.navigationBar.prefersLargeTitles = true
         let booksListCoordinator = BooksListCoordinator(
             rootNavigationController: navigationController,
             rootCoordinator: self)
