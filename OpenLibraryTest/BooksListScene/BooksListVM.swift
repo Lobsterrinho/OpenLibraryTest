@@ -44,15 +44,14 @@ final class BooksListVM: BooksListVMProtocol {
         networkService.loadBooks { booksModel in
             self.books = booksModel.docs.map({ doc in
                 Book(bookKey: doc.key,
-                      title: doc.title,
-                      firstPublishDate: doc.firstPublishDate,
+                     title: doc.title,
+                     firstPublishDate: doc.firstPublishDate,
                      coverID: doc.coverID ?? -1,
                      descriprtion: doc.firstSentence?.first ?? "Here is no description",
                      averageRating: doc.averageRating)
             })
             self.setupBooks()
             self.VMDelegate?.cellsDidLoaded(true)
-            
         }
     }
 }

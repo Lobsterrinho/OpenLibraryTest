@@ -22,10 +22,11 @@ final class BookCellVM: BookCellVMProtocol {
         imageDownloadService.cancelCurrentDownload()
     }
     
-    func loadImage(by id: Int, handler: @escaping (UIImage?) -> Void) {
-        let url = urlBuilder.buildURL(coverID: id, coverSize: "M")
+    func loadImage(by id: Int,
+                   handler: @escaping (UIImage?) -> Void) {
+        let url = urlBuilder.buildURL(coverID: id,
+                                      coverSize: "M")
         imageDownloadService.downloadImage(from: url) { image in
-            
             DispatchQueue.main.async {
                 handler(image)
             }

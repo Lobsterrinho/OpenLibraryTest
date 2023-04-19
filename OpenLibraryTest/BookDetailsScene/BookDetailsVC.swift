@@ -70,7 +70,6 @@ final class BookDetailsVC: UIViewController {
     }
     
     private func setupLabels() {
-        
         titleLabel.text = viewModel.book.title
         dateLabel.text = String(viewModel.book.firstPublishDate)
         descriptionTextView.text = viewModel.book.descriprtion
@@ -81,11 +80,4 @@ final class BookDetailsVC: UIViewController {
         }
     }
     
-    private func setupBookDescription() {
-        viewModel.loadBookDescription(
-            bookPath: viewModel.book.bookKey
-        ) { description in
-            self.descriptionTextView.text = description
-        }
-    }
 }

@@ -22,7 +22,7 @@ final class ImageDownloadService {
     }
     
     func downloadImage(from urlStr: String,
-        completion: @escaping DownloadHandler) {
+                       completion: @escaping DownloadHandler) {
         if let cachedImage = cache.get(for: urlStr) {
             completion(cachedImage)
             return
@@ -39,7 +39,7 @@ final class ImageDownloadService {
             with: request
         ) { [weak self] fileURL, response, error in
             guard response?.url == self?.currentRequest?.url else { return }
-
+            
             if let url = fileURL,
                let data = try? Data(contentsOf: url),
                let image = UIImage(data: data) {

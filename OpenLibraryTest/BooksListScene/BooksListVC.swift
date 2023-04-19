@@ -25,11 +25,21 @@ final class BooksListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        startLoader()
         viewModel.loadBooks()
         viewModel.setupAdapter(with: tableView)
         viewModel.setupVMDelegate(self)
-        indicator.startAnimating()
         title = "Books"
+    }
+    
+    private func startLoader() {
+        indicator.startAnimating()
+        indicator.isHidden = false
+    }
+    
+    private func stopLoader() {
+        indicator.stopAnimating()
+        indicator.isHidden = true
     }
     
 }
@@ -37,8 +47,7 @@ final class BooksListVC: UIViewController {
 extension BooksListVC: BooksListVMDelegate {
     func cellsDidLoaded(_ loaded: Bool) {
         if loaded {
-            indicator.stopAnimating()
-            indicator.isHidden = true
+            stopLoader()
         }
     }
 }
