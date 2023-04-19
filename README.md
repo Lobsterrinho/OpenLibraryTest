@@ -18,8 +18,6 @@
 </details>
 
 <div>
-  <img src="https://user-images.githubusercontent.com/114474821/233196028-e9b36fb6-3d5d-459c-ae68-555cae2d099e.png" alt="Image 1" style="display: inline-block;">
-  <img src="https://user-images.githubusercontent.com/114474821/233196036-8c779905-60b1-4237-83c2-d08f86912579.png" alt="Image 2" style="display: inline-block;">
+  <img src="https://user-images.githubusercontent.com/114474821/233197859-52e2343b-f42e-4901-bb40-b4f4c1c124d0.png" alt="Image 1" style="display: inline-block;">
+  <img src="" alt="[Image 2](https://user-images.githubusercontent.com/114474821/233197850-e0f278da-42dd-40d7-a674-5023985e3707.png)" style="display: inline-block;">
 </div>
-
-
