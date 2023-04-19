@@ -18,7 +18,9 @@
 </details>
 <details>
 <summary>ScreenShots</summary> 
+  
 ![Screen1](https://user-images.githubusercontent.com/114474821/233196028-e9b36fb6-3d5d-459c-ae68-555cae2d099e.png)
+  
 ![Screen2](https://user-images.githubusercontent.com/114474821/233196036-8c779905-60b1-4237-83c2-d08f86912579.png)
 
 
