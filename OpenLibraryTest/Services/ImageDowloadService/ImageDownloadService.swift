@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-typealias DownloadHandler = (UIImage?) -> Void
+typealias DownloadHandler = (Result<UIImage?, Error>) -> Void
 
 final class ImageDownloadService {
     
@@ -24,13 +24,14 @@ final class ImageDownloadService {
     func downloadImage(from urlStr: String,
                        completion: @escaping DownloadHandler) {
         if let cachedImage = cache.get(for: urlStr) {
-            completion(cachedImage)
+            completion(.success(cachedImage))
             return
         }
         
         guard let url = URL(string: urlStr) else { return }
         
         var request = URLRequest(url: url)
+        request.timeoutInterval = 5
         request.httpMethod = "GET"
         
         currentRequest = request
@@ -39,17 +40,16 @@ final class ImageDownloadService {
             with: request
         ) { [weak self] fileURL, response, error in
             guard response?.url == self?.currentRequest?.url else { return }
-            
+            if let error = error {
+                completion(.failure(error))
+            }
             if let url = fileURL,
                let data = try? Data(contentsOf: url),
                let image = UIImage(data: data) {
                 self?.cache.set(value: image, for: urlStr)
-                completion(image)
-            } else {
-                let noImage = UIImage(named: "noImage")!
-                self?.cache.set(value: noImage, for: urlStr)
-                completion(noImage)
+                completion(.success(image))
             }
+            
         }
         currentTask?.resume()
     }

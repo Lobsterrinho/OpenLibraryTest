@@ -47,7 +47,8 @@ final class BooksListVM: BooksListVMProtocol {
         networkService.loadBooks { result in
             switch result {
             case .failure(let error):
-                print(error.localizedDescription)
+                self.presentAlert(title: "Error",
+                             message: "\(error.localizedDescription)")
             case.success(let booksModel):
                 self.books = booksModel.docs.map({ doc in
                     Book(bookKey: doc.key,
@@ -56,12 +57,20 @@ final class BooksListVM: BooksListVMProtocol {
                          coverID: doc.coverID ?? -1,
                          descriprtion: doc.firstSentence?.first ?? "Here is no description",
                          averageRating: doc.averageRating)
-                    
                 })
                 self.setupBooks()
                 self.delegate?.cellsDidLoaded(true)
             }
         }
+    }
+    
+    private func presentAlert(title: String?, message: String?) {
+        let alert = alertFactory.makeAlert(title: title,
+                                           message: message,
+                                           actions: [.cancel({
+            
+        })])
+        coordinator?.presentAlert(alert)
     }
     
 }

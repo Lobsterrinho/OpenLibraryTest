@@ -32,11 +32,20 @@ final class BookDetailsVM: BookDetailsVMProtocol {
     func loadBookCover(by id: Int,
                        handler: @escaping (UIImage?) -> Void) {
         let url = urlBuilder.buildURL(coverID: id, coverSize: "M")
-        imageDownloadService.downloadImage(from: url) { image in
+        imageDownloadService.downloadImage(from: url) { result in
+        switch result {
+        case .failure(let error):
+            print(error.localizedDescription)
+            let noImage = UIImage(named: "noImage")!
+            DispatchQueue.main.async {
+                handler(noImage)
+            }
+        case .success(let image):
             DispatchQueue.main.async {
                 handler(image)
             }
         }
+    }
     }
     
 }
