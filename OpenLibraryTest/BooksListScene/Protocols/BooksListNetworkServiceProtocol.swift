@@ -8,5 +8,5 @@
 import UIKit
 
 protocol BooksListNetworkServiceProtocol {
-    func loadBooks(completion: @escaping (BooksModel) -> Void)
+    func loadBooks(completion: @escaping ResultHandler)
 }

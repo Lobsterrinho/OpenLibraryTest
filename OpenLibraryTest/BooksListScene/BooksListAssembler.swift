@@ -20,7 +20,8 @@ final class BooksListAssembler {
     private static func makeViewModel(coordinator: BooksListCoordinatorProtocol) -> BooksListVMProtocol {
         return BooksListVM(coordinator: coordinator,
                            networkService: makeNetworkService(),
-                           adapter: makeAdapter())
+                           adapter: makeAdapter(),
+                           alertFactory: makeAlertFactory())
     }
     
     private static func makeNetworkService() -> BooksListNetworkServiceProtocol {
@@ -29,6 +30,10 @@ final class BooksListAssembler {
     
     private static func makeAdapter() -> BooksListAdapterProtocol {
         return BooksListAdapter()
+    }
+    
+    private static func makeAlertFactory() -> AlertControllerFactoryProtocol {
+        return AlertControllerFactory()
     }
     
 }

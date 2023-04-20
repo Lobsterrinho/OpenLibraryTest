@@ -12,23 +12,26 @@ final class BooksListVM: BooksListVMProtocol {
     
     private var books: [Book] = []
     
-    private weak var VMDelegate: BooksListVMDelegate?
+    private weak var delegate: BooksListVMDelegate?
     
     private weak var coordinator: BooksListCoordinatorProtocol?
     private var networkService: BooksListNetworkServiceProtocol
     private var adapter: BooksListAdapterProtocol
+    private var alertFactory: AlertControllerFactoryProtocol
     
     init(coordinator: BooksListCoordinatorProtocol,
          networkService: BooksListNetworkServiceProtocol,
-         adapter: BooksListAdapterProtocol) {
+         adapter: BooksListAdapterProtocol,
+         alertFactory: AlertControllerFactoryProtocol) {
         self.coordinator = coordinator
         self.networkService = networkService
         self.adapter = adapter
+        self.alertFactory = alertFactory
         adapter.setupBooksListAdapterActionDelegate(self)
     }
     
     func setupVMDelegate(_ delegate: BooksListVMDelegate) {
-        self.VMDelegate = delegate
+        self.delegate = delegate
     }
     
     private func setupBooks() {
@@ -41,19 +44,26 @@ final class BooksListVM: BooksListVMProtocol {
     }
     
     func loadBooks() {
-        networkService.loadBooks { booksModel in
-            self.books = booksModel.docs.map({ doc in
-                Book(bookKey: doc.key,
-                     title: doc.title,
-                     firstPublishDate: doc.firstPublishDate,
-                     coverID: doc.coverID ?? -1,
-                     descriprtion: doc.firstSentence?.first ?? "Here is no description",
-                     averageRating: doc.averageRating)
-            })
-            self.setupBooks()
-            self.VMDelegate?.cellsDidLoaded(true)
+        networkService.loadBooks { result in
+            switch result {
+            case .failure(let error):
+                print(error.localizedDescription)
+            case.success(let booksModel):
+                self.books = booksModel.docs.map({ doc in
+                    Book(bookKey: doc.key,
+                         title: doc.title,
+                         firstPublishDate: doc.firstPublishDate,
+                         coverID: doc.coverID ?? -1,
+                         descriprtion: doc.firstSentence?.first ?? "Here is no description",
+                         averageRating: doc.averageRating)
+                    
+                })
+                self.setupBooks()
+                self.delegate?.cellsDidLoaded(true)
+            }
         }
     }
+    
 }
 
 extension BooksListVM: BooksListAdapterActionDelegate {

@@ -56,6 +56,8 @@
 		BA98AF4D29E9A4BC00B0B765 /* BooksListAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA98AF4C29E9A4BC00B0B765 /* BooksListAdapterProtocol.swift */; };
 		BA98AF4F29E9A4FF00B0B765 /* BooksListAdapterActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA98AF4E29E9A4FF00B0B765 /* BooksListAdapterActionDelegate.swift */; };
 		BA98AF5129E9AD1D00B0B765 /* BooksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA98AF5029E9AD1D00B0B765 /* BooksModel.swift */; };
+		BA9D37C929F125450089D897 /* AlertControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9D37C829F125450089D897 /* AlertControllerFactory.swift */; };
+		BA9D37CB29F1259E0089D897 /* AlertControllerFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9D37CA29F1259E0089D897 /* AlertControllerFactoryProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +112,8 @@
 		BA98AF4C29E9A4BC00B0B765 /* BooksListAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListAdapterProtocol.swift; sourceTree = "<group>"; };
 		BA98AF4E29E9A4FF00B0B765 /* BooksListAdapterActionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListAdapterActionDelegate.swift; sourceTree = "<group>"; };
 		BA98AF5029E9AD1D00B0B765 /* BooksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksModel.swift; sourceTree = "<group>"; };
+		BA9D37C829F125450089D897 /* AlertControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerFactory.swift; sourceTree = "<group>"; };
+		BA9D37CA29F1259E0089D897 /* AlertControllerFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerFactoryProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +225,7 @@
 				BA54852E29E83F4D0052B9C9 /* BooksListScene */,
 				BA97FFAB29EC1C450017DEFE /* BookDetailsScene */,
 				BA54852129E83EC00052B9C9 /* Assets.xcassets */,
+				BA9D37C729F1252A0089D897 /* AlertControllerFactory */,
 				BA54852329E83EC00052B9C9 /* LaunchScreen.storyboard */,
 				BA54852629E83EC00052B9C9 /* Info.plist */,
 			);
@@ -271,10 +276,10 @@
 		BA54854729E874850052B9C9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				BA4645D129EFE55B00F5101F /* URLBuilderService */,
-				BA2F7FBF29EFC7F800F1B06A /* ImageCacheService */,
-				BA2F7FBE29EFC7E700F1B06A /* ImageDowloadService */,
 				BA2F7FBD29EFC7BC00F1B06A /* NetworkService */,
+				BA2F7FBE29EFC7E700F1B06A /* ImageDowloadService */,
+				BA2F7FBF29EFC7F800F1B06A /* ImageCacheService */,
+				BA4645D129EFE55B00F5101F /* URLBuilderService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -330,6 +335,15 @@
 				BA98AF4A29E9A4A100B0B765 /* BooksListAdapter.swift */,
 			);
 			path = BooksListAdapter;
+			sourceTree = "<group>";
+		};
+		BA9D37C729F1252A0089D897 /* AlertControllerFactory */ = {
+			isa = PBXGroup;
+			children = (
+				BA9D37C829F125450089D897 /* AlertControllerFactory.swift */,
+				BA9D37CA29F1259E0089D897 /* AlertControllerFactoryProtocol.swift */,
+			);
+			path = AlertControllerFactory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,6 +440,7 @@
 				BA97FFB329EC1C800017DEFE /* BookDetailsVC.swift in Sources */,
 				BA54853029E83F640052B9C9 /* BooksListVM.swift in Sources */,
 				BA98AF5129E9AD1D00B0B765 /* BooksModel.swift in Sources */,
+				BA9D37C929F125450089D897 /* AlertControllerFactory.swift in Sources */,
 				BA98AF4D29E9A4BC00B0B765 /* BooksListAdapterProtocol.swift in Sources */,
 				BA54853229E83F6D0052B9C9 /* BooksListCoordinator.swift in Sources */,
 				BA54853829E83FA20052B9C9 /* AppCoordinator.swift in Sources */,
@@ -437,6 +452,7 @@
 				BA97FFAD29EC1C680017DEFE /* BookDetailsCoordinator.swift in Sources */,
 				BA98AF4F29E9A4FF00B0B765 /* BooksListAdapterActionDelegate.swift in Sources */,
 				BA2F7FA829EFB02F00F1B06A /* ImageCacheService.swift in Sources */,
+				BA9D37CB29F1259E0089D897 /* AlertControllerFactoryProtocol.swift in Sources */,
 				BA4645D529EFEE1300F5101F /* ImageDowloadService+BookDetails.swift in Sources */,
 				BA54854C29E8949D0052B9C9 /* BooksListNetworkServiceProtocol.swift in Sources */,
 				BA2F7FC729EFE2CF00F1B06A /* URLBuilder+BookTableCell.swift in Sources */,

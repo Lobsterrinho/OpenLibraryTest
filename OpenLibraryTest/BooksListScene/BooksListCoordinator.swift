@@ -35,6 +35,11 @@ final class BooksListCoordinator: Coordinator {
 
 extension BooksListCoordinator: BooksListCoordinatorProtocol {
     
+    func presentAlert(_ alert: UIAlertController) {
+        rootNavigationController.present(alert,
+                                         animated: true)
+    }
+    
     func openBookDetailsScene(book: Book) {
         let bookDetailsCoordinator = BookDetailsCoordinator(
             navigationController: rootNavigationController,
